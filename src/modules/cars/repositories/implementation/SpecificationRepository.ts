@@ -32,8 +32,8 @@ class SpecificationRepository implements ISpecificationRepository {
     this.specifications.push(specification);
   }
 
-  list(): void {
-    throw new Error("Method not implemented.");
+  list(): Specification[] {
+    return this.specifications;
   }
 
   findByName(name: string): Specification {
