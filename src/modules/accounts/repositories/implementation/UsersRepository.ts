@@ -13,7 +13,6 @@ class UsersRepository implements IUsersRepository {
 
     async create({
         name, 
-        username, 
         email,
         password, 
         driver_license
@@ -22,7 +21,6 @@ class UsersRepository implements IUsersRepository {
             name,
             password,
             email,
-            username,
             driver_license
         });
 
