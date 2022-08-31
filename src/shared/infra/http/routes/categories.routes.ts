@@ -21,7 +21,8 @@ categoriesRoutes.post(
   "/", 
   ensureAuthenticated,
   ensureAdmin,
-  createCategoryController.handle);
+  createCategoryController.handle
+);
 
 categoriesRoutes.get("/", listCategoriesController.handle);
 
