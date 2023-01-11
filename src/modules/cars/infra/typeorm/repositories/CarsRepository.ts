@@ -35,13 +35,14 @@ class CarsRepository implements ICarsRepository {
             id
         });
 
+        console.log('car => ', car);
 
         await this.repository.save(car);
 
         return car;
     }
     async findByLicensePlate(license_plate: string): Promise<Car> {
-        return await this.repository.findOne(license_plate);
+        return await this.repository.findOne({license_plate});
     }
 
     async findById(id: string): Promise<Car> {
