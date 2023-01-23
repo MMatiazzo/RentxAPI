@@ -13,7 +13,6 @@ interface IRequest {
 
 @injectable()
 class CreateRentalUseCase {
-
     constructor(
         @inject("RentalsRepository")
         private rentalsRepository: IRentalsRepository,
@@ -28,7 +27,6 @@ class CreateRentalUseCase {
         car_id,
         expected_return_date
     }: IRequest): Promise<Rental> {
-
         const minimumHour = 24;
 
         const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(car_id);

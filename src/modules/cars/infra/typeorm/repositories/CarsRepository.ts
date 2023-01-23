@@ -79,10 +79,10 @@ class CarsRepository implements ICarsRepository {
         await this.repository
         .createQueryBuilder()
         .update()
-        .set({available})
+        .set({ available })
         .where("id = :id")
-        .setParameters({id})
-        .execute()
+        .setParameters({ id })
+        .execute();
     }
 }
 
