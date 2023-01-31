@@ -3,21 +3,21 @@ import { v4 as uuidV4 } from "uuid"
 
 import { resolve } from "path";
 
-import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
-import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UsersTokenRepository";
 import { AppError } from "@shared/errors/AppError";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { IMailProvider } from "@shared/container/providers/MailProvider/IMailProvider";
 import { template } from "handlebars";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
+import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
 
 @injectable()
 class SendForgotPasswordMailUseCase {
 
     constructor(
         @inject("UsersRepository")
-        private usersRepository: UsersRepository,
+        private usersRepository: IUsersRepository,
         @inject("UsersTokensRepository")
-        private usersTokensRepository: UsersTokensRepository,
+        private usersTokensRepository: IUsersTokensRepository,
         @inject("DayjsDateProvider")
         private dateProvider: IDateProvider,
         @inject("EtherealMailProvider")
